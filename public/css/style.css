@@ -1,0 +1,91 @@
+.body{
+    background-color: rgba(237,238,240,0.79);
+}
+.square{
+    border: 1px solid rgba(127,127,127,0.79);
+    background-color: rgba(255,255,255,0.79);
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+
+}
+#mainSquare{
+    width: 50%;
+    height: 500px;
+    margin-left: 25%;
+    float: left;
+    border-radius: 2%;
+}
+#loginSquare{
+    width: 17%;
+    height: 180px;
+    float: right;
+    margin-right: 3%;
+    border-radius: 5%;
+    padding-top: .5%;
+}
+#inputField{
+    display: block;
+    float: inherit;
+    height: 50px;
+    width: 96%;
+    margin: 2%;
+    border-radius: 5%;
+    font-size: 1.1em;
+}
+#chat{
+    margin: 2%;
+    display: block;
+    width: 96%;
+    height: 80%;
+    border: 1px solid rgba(184, 184, 184, 0.79);
+   /* border-radius: 2%;*/
+    overflow: auto;
+
+}
+#inputButton{
+    display: block;
+    width: 50%;
+    height: 40px;
+    float: right;
+    margin: 7%;
+    margin-top: 8%;
+    border-radius: 5%;
+    letter-spacing: 1px;
+    font-family: "Comic Sans MS";
+    font-size: larger;
+
+}
+.inputLogin{
+    width: 86%;
+    height: 30px;
+    margin-left: 7%;
+    margin-right: auto;
+    margin-top: 8%;
+    border-radius: 2%;
+    font-size: 1.1em;
+}
+#imgChat{
+    width: 40%;
+    height: auto;
+    margin-left: 30%;
+    margin-top: 10%;
+}
+#loginChat{
+    letter-spacing: 1px;
+    font-family: "Comic Sans MS";
+    font-size: larger;
+    margin-left: 35%;
+}
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#messages li {
+    padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+    background: rgba(219,222,227,0.79);
+}
+#messages {
+    margin-bottom: 40px
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../../public/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/app.css"/>
+</head>
+<body class="body">
+<div class="square" id="mainSquare">
+    <div id="chat">
+        <ul id="messages"></ul>
+    </div>
+    <form id="formMsg"  action="">
+        <input id="inputField" autocomplete="off" autofocus placeholder="Сообщение...">
+    </form>
+</div>
+<div class="square" id="loginSquare">
+    <form action="/" method="POST" name="loginForm">
+        <label>
+            <input type="email" class="inputLogin" name="email" disabled="true">
+        </label>
+        <label>
+            <input type="password" class="inputLogin" name="password" disabled="true">
+        </label>
+        <input type="submit" id="inputButton" value="Выход">
+    </form>
+</div>
+</body>
+</html>
+<script>
+    $(document.forms['loginForm']).on('submit', function() {
+        $.ajax({
+            url: "/login",
+            type: "POST"
+        });
+        return false;
+    })
+</script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    $(function () {
+        var socket = io();
+        $('#formMsg').submit(function(){
+            socket.emit('chat message', $('#inputField').val());
+            $('#inputField').val('');
+            return false;
+        });
+        socket.on('chat message', function(msg){
+            $('#messages').append($('<li>').text(msg));
+            var elem = document.getElementById("chat");
+            elem.scrollTop = elem.scrollHeight;
+        });
+    });
+</script>

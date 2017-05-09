@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../../public/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/app.css"/>
+</head>
+<body class="body">
+<div class="square" id="mainSquare">
+    <div >
+        <img src="http://www.dealist.com.ua/sites/default/files/chat.png" id="imgChat">
+        <p id="loginChat">Войдите в чат</p>
+    </div>
+</div>
+<div class="square" id="loginSquare">
+    <form action="/chat" method="POST" name="loginForm" id="loginForm">
+        <label>
+            <input type="email" id="email" class="inputLogin" name="email" placeholder="example@gmail.com" required>
+        </label>
+        <label>
+            <input type="password" id="password" class="inputLogin" name="password" placeholder="password" required>
+        </label>
+        <input type="submit" id="inputButton" value="Вход">
+    </form>
+</div>
+
+</body>
+</html>
+<script>
+    $(document.forms['loginForm']).on('submit', function() {
+        var form = $(this);//объкт
+
+        /*      //можно и так
+         var email = document.getElementById('email');
+         var password = document.getElementById('password');*/
+        $.ajax({
+            url: "/chat", //cсылка на которую отправится запрос
+            data: form.serialize(),//данные которые туда отправятся
+            type: "POST"
+        });
+        return false;
+    });
+</script>
